@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Socket.IO Chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="loginScreen">
+      <h2>Войти в чат</h2>
+      <input type="text" id="userName" placeholder="Ваше имя" required />
+      <input type="text" id="roomName" placeholder="Название комнаты" required />
+      <label>
+        <input type="checkbox" id="isPublic" checked /> Публичная комната
+      </label>
+      <button id="joinBtn">Войти</button>
+    </div>
+
+    <div id="chatScreen" style="display:none;">
+      <div class="header">
+        <h2 id="roomTitle">Комната: </h2>
+        <button id="visibilityBtn">Режим: Активный</button>
+        <button id="leaveBtn">Покинуть</button>
+      </div>
+
+      <div id="users">
+        <h3>Участники</h3>
+        <ul id="userList"></ul>
+      </div>
+
+      <div id="chat">
+        <div id="messages"></div>
+        <div id="inputArea">
+          <input type="text" id="messageInput" placeholder="Введите сообщение..." />
+          <button id="sendBtn">Отправить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
